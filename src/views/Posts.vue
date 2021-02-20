@@ -1,13 +1,13 @@
 <template>
   <div class="container pt-5 pb-10">
-    <post></post>
+    <posts></posts>
   </div>
 </template>
 
 <script>
 import Posts from "../components/Posts";
 export default {
-   components: {Post: Posts},
+   components: {Posts},
    computed: {
       postsList () {
         return this.$store.getters.posts
@@ -16,7 +16,3 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
-
-</style>
