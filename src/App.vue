@@ -1,10 +1,18 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="header">
+      <div class="container">
+        <div class="d-flex align-center">
+          <router-link to="/">
+            <img alt="logo" src="./assets/logo.png">
+          </router-link>
+          <router-link to="/">Home</router-link>
+        </div>
+      </div>
     </div>
-    <router-view/>
+    <div class="main">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -17,16 +25,19 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
+.header{
+  border-bottom: 1px solid #eaecef;
+  background-color: #f5f5f5;
+  img{
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+  }
+  a{
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
     color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
   }
 }
 </style>

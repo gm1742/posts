@@ -1,22 +1,42 @@
 <template>
   <div class="container">
-    <h2>{{title}}titledsfdsf</h2>
-    <div class="d-flex">
-      <div>User</div>
-      <div>{{userId}}</div>
+    <h1>{{post.title}}</h1>
+    <div class="text-left user mb-5">
+      <div>id: {{post.id}}</div>
+    </div>
+    <div class="text-left user mb-10">
+      <div>User {{post.userId}}</div>
     </div>
     <div class="text">
-      {{body}}
+      {{post.body[0].toUpperCase() + post.body.slice(1)}}
     </div>
   </div>
 </template>
 
 <script>
    export default {
-      props: ['title', 'userId', 'body']
+      data () {
+         return {
+            id: this.$route.params.id
+         }
+      },
+      computed: {
+         post () {
+            const id = this.id
+            return this.$store.getters.postById(id)
+         }
+      }
    }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+  h1{
+    text-transform: uppercase;
+  }
+  .text{
+    text-align: left;
+  }
+  .user{
+    color: #ccc;
+  }
 </style>
